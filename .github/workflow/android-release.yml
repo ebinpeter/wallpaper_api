@@ -28,7 +28,7 @@ jobs:
         run: flutter upgrade --force
       - name: Get dependencies
         run: flutter pub get
-
+#14 run a set of commands
       - name: Start APK build
         run: flutter build apk
       - uses: actions/upload-artifact@v1
