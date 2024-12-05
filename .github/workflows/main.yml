@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -26,13 +26,13 @@ jobs:
           cache: true
       - name: Flutter upgrade
         run: flutter upgrade --force
+      - name: Clean build directory
+        run: flutter clean
       - name: Get dependencies
         run: flutter pub get
-
       - name: Start APK build
         run: flutter build apk
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v3
         with:
           name: release-apk
           path: build/app/outputs/apk/release/app-release.apk
-
